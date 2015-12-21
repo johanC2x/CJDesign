@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require font-awesome
+ *= require rails_bootstrap_forms
+ */
+
+ *{
+ 	margin: 0;
+ 	padding: 0;
+ }
+ #nav{
+ 	width: 100%;
+ 	height: 40px;
+ 	background-color: #000;
+ 	float: left;
+ }
+ #page_nav a,#sign_in a{
+ 	line-height: 40px;
+ 	color: #fff;
+ 	padding: 0 20px 0 20px;
+ 	text-decoration: none;
+ }
+ #page_nav a:hover,#sign_in a:hover{ 
+ 	color: red; 
+ } 
+ #page_nav{
+ 	margin: 0 0 0 5%;
+ 	float: left;
+ }
+ #sign_in{
+ 	float: right;
+ 	margin: 0 5% 0 0;
+ }
+ #main_wrap{
+ 	width: 90%;
+ 	float: left;
+ 	margin: 20px 5% 0 5%;
+ 	padding: 5px;
+ }
+ .footer {
+    background-color: #455A64;
+    bottom: -50px;
+    height: 250px;
+    position: relative;
+    width: 100%;
+}
+hr{
+	color: #f00;
+	background-color: #263238;
+	height: 2px;
+}
+.pointer{
+	cursor: pointer; 
+}
+.pointer:hover{
+	background-color: #FFFFFF;
+} 
+.list-inline{
+	display: inline;
+	padding: 5px;
+	text-align: center;
+}
+.no-margin{
+	margin: 0;
+ 	padding: 0;
+}
+body{
+	
+}
+.no-float{
+	float: none;
+}
+.p-foo{
+	color: #FAFAFA;
+	font-size: 14px;
+}
+.h-foo{
+	text-shadow: 2px 0 0 #616161, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}

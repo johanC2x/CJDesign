@@ -1,0 +1,28 @@
+<% modal ||= false %>
+<% remote = modal ? true : false %>
+	<% @article = Article.new%>
+	<%= form_for(Article.new, remote: remote, html: {role: :form, 'data-model' => 'article'}) do |f| %>  
+		<% if @article.errors.any? %>
+				<%= @article.errors.full_messages.each do |msgs| %>
+					<div class="alert alert-danger">
+						<%=msgs%>
+					</div>
+				<%end%>
+		<% end %> 
+		<div class="form-group"> 
+			<label style="font-size:14px;" >Titulo</label>
+			<%= f.text_field :titles, class:"form-control" %>
+		</div>
+		<div class="form-group"> 
+			<label style="font-size:14px;" >Subir Imagen</label>
+			<%= f.file_field :cover,class:"file","data-show-preview" => "false" %>
+		</div>
+		<div class="form-group"> 
+			<label style="font-size:14px;" >Contenido</label>
+			<%= f.text_area :description, class:"form-control" , rows: 10 %>  
+		</div> 
+		<%= f.submit value:"Crear Articulo" , class:"btn btn-info"%> 
+	<% end %>  
+ 
+
+ 

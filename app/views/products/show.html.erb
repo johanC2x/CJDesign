@@ -1,0 +1,17 @@
+
+<div class="row">
+  <div class="col-md-12"> 
+    <div class="col-md-4">
+      <center>
+        <%= image_tag(@product.cover.url(:medium)) %>
+      </center>
+    </div>
+    <div class="col-md-8">
+      <h1><%= @product.title %></h1> 
+      <p style="text-align:justify;font-size:15px;font-family:arial;">
+        <%= @product.description %>
+      </p> 
+    </div>
+  </div> 
+</div>
+ 

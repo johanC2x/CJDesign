@@ -1,0 +1,8 @@
+<%= render "plantilla/navarticle.html" %> 
+
+<% if @user != nil %>
+	<% @user.each do |user| %>
+		
+		<p><%= user.email %></p>
+	<% end %>
+<% end %>

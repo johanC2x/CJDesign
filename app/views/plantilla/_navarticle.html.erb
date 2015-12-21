@@ -1,0 +1,12 @@
+<h1>
+  Galeria de Articulos
+</h1>
+<% if user_signed_in? %> 
+  <ul class="list-group"  >
+    <li class="list-group-item" style="background-color:#F5F5F5">
+      <%= link_to 'Galeria',articles_path %>
+      /
+      <%= link_to 'Crear Articulo', '#new_article_modal', 'data-toggle' => 'modal'  %>
+    </li>
+  </ul>
+<% end %> 

@@ -1,0 +1,29 @@
+<h1>Servicios Agregados</h1>
+<br/>
+<% if @cart.empty? %>
+	<p>Lista de Pedidos Cancelada</p>
+<% else %>
+	<%= link_to 'Cancelar Pedido',cart_clear_path %>
+<% end %>
+
+<br/><br/><br/>
+<% total = 0 %>
+<ul>
+	<% @cart.each do | id,quantity | %>
+		<% product = Product.find_by_id(id) %>
+		<li>
+			<%= link_to product.title,product %>
+			<p><%= product.description %></p>
+			<p><%= number_to_currency(product.price,:unit=>'$') %></p>
+			<p>Cantidad: <%= quantity %></p>
+		</li>
+		<% total += quantity * product.price %>
+	<% end %>
+	<br/> 
+	<% if @cart.empty? %>
+		<p></p>
+	<% else %>
+		<hr  style="width:220px;" />
+		<p><b>Total: <%= number_to_currency(total,:unit => '$') %></b></p>
+	<% end %> 
+</ul>

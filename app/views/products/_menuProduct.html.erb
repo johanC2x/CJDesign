@@ -1,0 +1,12 @@
+<div class="well">
+	<i class="fa fa-folder-open"></i> <span style="font-size:15px;">Servicios</span> 
+</div>
+<% if user_signed_in? %>
+  <ul class="list-group" >
+    <li class="list-group-item"> 
+      <%= link_to 'Servicio',products_path %>
+      /
+      <%= link_to 'Crear Servicio', new_product_path %> 
+    </li>
+  </ul> 
+<% end %>

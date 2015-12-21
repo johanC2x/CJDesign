@@ -1,0 +1,12 @@
+
+<%= bootstrap_form_for(@product,inline_errors: false, html: {role: :form, 'data-model' => 'article'}) do |f| %>
+  <% if @product.errors.any? %>
+    <%= f.alert_message "Please fix the errors below.", error_summary: false %>
+  <% end %>
+  <%= f.text_field :title,label:"Nombre",control_col: "col-sm-3" %>
+  <%= f.text_field :category,label:"Categoria" %>
+  <%= f.file_field :cover,class:"file","data-show-preview" => "false" %>
+  <%= f.text_area :description,label:"Descripcion" %>
+  <%= f.text_field :price,label:"Precio" %>
+  <%= f.submit "Crear Producto",class:"btn btn-primary" %>
+<% end %>

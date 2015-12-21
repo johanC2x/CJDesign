@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cartapp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body> 
+	<div style="padding:5px;">
+		<%= render "plantilla/header" %>    	
+	</div>  
+<br/> 
+	<div class="container">
+		<div id="main_wrap">
+			<% if notice %>
+			  <div class="alert alert-success" >
+			  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			  <%= notice %></div>
+			<% end %>
+			<% if alert %>
+			  <div class="alert alert-danger">
+			  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			  <%= alert %></div>
+			<% end %> 
+			<%= yield %>
+		</div>
+	</div> 
+<br/>
+<!--Modal de Upload File-->
+<div class="modal fade" id="new_article_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" 
+     aria-hidden="true" role="dialog">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel">Crear Nuevo Articulo</h4>
+	      </div>
+	      <div class="modal-body">
+	        <%# Render the new person form (passing modal => true to enable remote => true) %>
+	        <%= render "articles/newArticle" %>
+	      </div>
+	      <div class="modal-footer"> 
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<!-- End Modal-->
+	<footer class="footer">
+		<div class="container" >
+			<%= render "plantilla/footer" %>
+		</div> 
+	</footer> 
+</body>
+</html>

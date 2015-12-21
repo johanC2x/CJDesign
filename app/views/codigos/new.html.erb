@@ -1,0 +1,15 @@
+<%= render "menuCodigo" %>
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-4">
+			<%= bootstrap_form_for(@codigo) do |f| %>
+				<fieldset> 
+					<%= f.text_field :nombre %>
+					<%= f.text_field :valor %>
+					<%= f.text_area :descripcion %>
+				</fieldset> 
+				<%= f.submit "Crear Codigo",class:"btn btn-info" %>
+			<% end %>
+		</div>
+	</div> 
+</div>

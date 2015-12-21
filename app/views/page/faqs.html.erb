@@ -1,0 +1,31 @@
+<div class="row">
+  <ol class="breadcrumb">
+    <li><%= link_to "Home" , root_path %></li>
+    <li class="active">Blogs</li>
+  </ol>
+</div>
+<% if @articles != nil %>  
+  <% @articles.each do |article| %> 
+    <div class="row" style="padding-top:20px;">
+      <div class="col-md-12">
+        <div class="col-md-4">
+          <center>
+            <%= image_tag(article.cover.url(:thumb,class:"img-responsive"))%> 
+          </center>
+        </div>
+        <div class="col-md-8">
+          <h2><%= link_to article.titles,article,method: :get %></h2>
+          <ul class="list-group">
+            <li class="list-group-item">
+              Autor: <%= article.user.email %> /
+              Fecha: <%= article.created_at %>
+            </li>
+          </ul>
+          <p style="text-align:justify;">
+            <%= article.description %>
+          </p>
+        </div>
+      </div>
+    </div> 
+  <% end %> 
+<% end %>

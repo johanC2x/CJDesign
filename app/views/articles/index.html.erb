@@ -1,0 +1,85 @@
+<%= render "plantilla/navarticle.html" %>
+<!--, new_article_path --> 
+<% if @articles != nil %>  
+  <% @articles.each do |article| %> 
+    <div class="row" style="padding-top:20px;">
+      <div class="col-md-12"> 
+        <div class="col-md-4"> 
+          <center>
+            <%= image_tag(article.cover.url(:thumb,class:"img-thumbnail"))%> 
+          </center>
+        </div>
+        <div class="col-md-8">
+          <h2><%= link_to article.titles,article,method: :get %></h2>
+           
+          <div class="well">
+            Autor: <%= article.user.email %> /
+            Fecha: <%= article.created_at %>
+            <span style="color:red;">
+              <i class="fa fa-arrow-right"></i>
+            </span>
+            <span class="span12">
+              <% if article.publish == 0%>
+                <%= link_to "Publicar" ,"/articles/#{article.id}/publish", method: :put ,style:"text-decoration:none;" %>
+              <% else %>
+                <%= link_to "Despublicar" ,"/articles/#{article.id}/unpublish", method: :put,style:"text-decoration:none;" %>
+              <% end %>  
+            </span> 
+          </div>
+          <p style="text-align:justify;">
+            <%= article.description %> 
+          </p> 
+        </div>
+      </div>
+    </div>
+    <div class="row"> 
+      <% if article.errors.any? %>
+        <%= article.errors.full_messages.each do |msgs| %>
+          <div class="alert alert-danger">
+            <%= msgs %>
+          </div>
+        <%end%>
+      <% end %> 
+    </div>
+  <% end %>
+<% end %>
+<% if @articles.length == 0 %>
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" class="pointer">
+                <b>Malas Noticias <i class="fa fa-exclamation" style="color:red;"></i></b>
+            </a>
+            <i class="fa fa-arrow-circle-o-down pull-right"></i>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+          <div class="col-md-12">
+            <div class="col-md-4">
+              <center>
+                <%= image_tag "triste.png", :alt => "triste", :title => "triste" ,
+                  :style => "height:200px;padding:5px;" %>
+              </center>
+            </div>
+            <div class="col-md-8">
+              <p style="text-align:justify;">
+                Lorem ipsum dolor sit amet, tortor ultricies at sit pellentesque, leo nullam, asperiores semper. Mauris aliquam aliquam fringilla, et eu, nec parturient blanditiis sed non, proin fringilla. Eros ut diam at ipsum vel, blandit donec magnis rhoncus erat aliquam sociis. Ac wisi orci mauris taciti, quam adipiscing hac. Ut interdum sollicitudin taciti facilisis. 
+              </p>
+              <br/>
+              <span style="color:red;"><b>Empieza ya.......</b></span>
+            </div>
+          </div>
+          </div>
+        </div>
+    </div> 
+  </div>
+<% end %>
+
+
+
+
+
+
+

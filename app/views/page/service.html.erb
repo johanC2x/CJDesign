@@ -1,0 +1,35 @@
+  <div class="row">
+    <ol class="breadcrumb">
+      <li><%= link_to "Home" , root_path %></li>
+      <li class="active">Servicios</li>
+    </ol>
+  </div>
+  <div class="row" >
+    <div class="col-md-12">
+      <% @products.each do |product| %> 
+        <div class="col-md-4">
+        <div style="background:url(<%= product.cover.url()%>);background-size:100% 100%;
+                    margin: 0px 5px 5px 0px;height:250px;">
+          <h3><%= product.title %></h3>          
+          <p style="text-align:justify;" >
+            <%= product.description %>
+          </p>
+        </div>
+        <div style="margin: 0 auto;" >
+          <ul>
+            <% if product.price == nil %>
+              <li style="list-style-type:none;">Precio a evaluar</li>
+            <% else %>
+              <li style="list-style-type:none;">Precio: <%= product.price.to_f %></li>
+            <% end %>
+          </ul>
+        </div> 
+          <ul class="list-group" >
+            <li class="list-group-item"> 
+              <%= link_to 'Solicitar', page_contact_path %> 
+            </li>
+          </ul> 
+        </div> 
+      <% end %>
+    </div>
+  </div>
